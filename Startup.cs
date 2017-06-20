@@ -9,6 +9,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Configuration;
 using Pivotal.Discovery.Client;
+using Steeltoe.Extensions.Configuration;
+
 
 namespace bootcamp_core_ui
 {
@@ -17,6 +19,7 @@ namespace bootcamp_core_ui
         public Startup(IHostingEnvironment env) {
             var builder = new ConfigurationBuilder()
             .SetBasePath(env.ContentRootPath)
+            .AddCloudFoundry()
             .AddEnvironmentVariables()
             .AddJsonFile("appsettings.json");
 
